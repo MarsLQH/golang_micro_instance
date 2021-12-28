@@ -1,0 +1,106 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+//import "google/protobuf/timestamp.proto";
+package hicourt;
+
+option go_package = "./proto;hicourt";
+
+service Hicourt{
+  rpc Lists(ListsRequest) returns (ListsResponse) {};
+  rpc Recommend(RecommendRequest) returns (RecommendResponse){};
+  rpc Detail(DetailRequest) returns (DetailResponse){};
+
+}
+
+message GetRecommendRequest{
+  int32 pos = 1;
+  repeated string cids = 2;
+  int32 per_page = 3;
+}
+
+message GetRecommendResponse{
+  int32 code = 1;
+  string msg = 2;
+  repeated Video videoLists = 3;
+}
+
+message GetArenaRequest{
+  repeated string cids = 1;
+}
+
+message GetArenaResponse{
+  int32 code = 1;
+  string msg = 2;
+  repeated string appIds = 3;
+  int32 total = 4;
+}
+
+message ListsRequest{
+
+  repeated string appIds = 1;
+  int32 pos = 2;
+  string court_id = 3;
+  string   begin_at = 4;      //   google.protobuf.Timestamp begin_at = 4;
+  string   end_at = 5;       //    google.protobuf.Timestamp end_at = 5;
+  int32 page = 6;
+  string goal_type = 7;
+  int32 per_page = 8;
+  string user_id = 9;
+  string receipt_id = 10;
+  repeated string cids = 11;
+  string order_by = 12;
+}
+
+message Video{
+  //repeated int32 goal_position = 1;
+  string video_name = 2;
+  string video_url = 3;
+  string goal_type = 4;
+  string goal_time = 5;
+  int32 goal_score = 6;
+  string appid = 7;
+  
+  string court_id = 8;
+  string user_id = 9;
+  string receipt_id = 10;
+  uint32 id = 11;
+  string cid = 12;
+  repeated int32 recommend_pos = 13;
+  string from_source = 14;
+  string cover_image = 15;
+}
+
+message RspCommon{
+  int32 code = 1;
+  string msg = 2;
+}
+
+message ListsResponse{
+
+  int32 code = 1;
+  string msg = 2;
+  //
+  repeated google.protobuf.Struct records = 3;
+  int32 total = 4;
+  repeated Video videoLists = 5;
+}
+
+message RecommendRequest{
+  int32 id = 1;
+  repeated int32 pos = 2;
+
+}
+message RecommendResponse{
+  int32 code = 1;
+  string msg = 2;
+}
+
+message DetailRequest{
+  int64 id = 1;
+}
+
+message DetailResponse{
+  int32 code = 1;
+  string msg = 2;
+  Video video = 3;
+}

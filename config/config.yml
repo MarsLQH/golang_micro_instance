@@ -1,0 +1,15 @@
+consul:
+  # set env HICOURT_CONSUL_ADDR=127.0.0.1:8500
+  addr:
+
+mysql:
+  user: root
+  pwd: phperno1
+  host: 8.142.86.204
+  port: 3306
+  db: arena
+
+redis:
+  addr: 127.0.0.1:6379
+  pwd:
+  db: 0
