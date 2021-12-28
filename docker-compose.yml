@@ -1,12 +1,12 @@
 version: "3"
 services:
-  arena_hicourt:
-    image: registry.myarena7.com/arena/hicourt:${CI_COMMIT_REF_NAME}
-    container_name: arena_hicourt
+  MarsLuo:
+    image: MarsLuo:${CI_COMMIT_REF_NAME}
+    container_name: book_book
     networks:
       - micro_net
     environment:
-      HICOURT_CONSUL_ADDR: "consul-dev:8500"
+
       MICRO_AUTH_ID: "admin"
       MICRO_AUTH_SECRET: "micro"
       MICRO_NETWORK_ADDRESS: "micro:8085"
@@ -23,7 +23,7 @@ services:
 #      driver: gelf
 #      options:
 #        gelf-address: ${DOCKER_GELF_ADDRESS}
-#        tag: "arena_hicourt"
+#        tag: "book_book"
 
 networks:
   micro_net:

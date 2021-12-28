@@ -33,10 +33,8 @@ func C() Config {
 func Init() {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	//viper.AddConfigPath(pathutil.RealPath("config"))
-	viper.AddConfigPath("/Users/mac/Documents/arena/hicourt/config")
-
-	viper.SetEnvPrefix("HICOURT")
+	viper.AddConfigPath("")
+	viper.SetEnvPrefix("")
 
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -71,11 +69,11 @@ func readRemoteConfig() {
 	log.Debug().Msgf("consul addr is %s", def.Consul.Addr)
 
 	// 从consul中读取配置
-	viper.AddRemoteProvider("consul", def.Consul.Addr, "ARENA_HICOURT")
+	viper.AddRemoteProvider("consul", def.Consul.Addr, "")
 	viper.SetConfigType("json")
 	err := viper.ReadRemoteConfig()
 	if err != nil {
-		log.Warn().Err(err).Msg("not found the key ARENA_HICOURT at consul key/value")
+		log.Warn().Err(err).Msg("not found the key  at consul key/value")
 		return
 	}
 

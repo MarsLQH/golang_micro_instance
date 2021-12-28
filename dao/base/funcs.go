@@ -1,8 +1,9 @@
 package base
 
 import (
+	"MarsLuo/core"
 	"errors"
-	"git.myarena7.com/arena/hicourt/core"
+
 	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
 	"sync"
@@ -22,7 +23,7 @@ func (f *Functions) GetDb() (client *gorm.DB, err error) {
 
 	once := &sync.Once{}
 	once.Do(func() {
-		log.Info().Msg("	DbArena init ")
+		log.Info().Msg("	Dbbook init ")
 		DbClient, err := f.core.ConnectDB()
 		if err != nil {
 			log.Error().Err(err).Msg("链接数据库时发生错误")

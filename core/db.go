@@ -1,6 +1,7 @@
 package core
 
 import (
+	"MarsLuo/config"
 	"errors"
 	"reflect"
 	"time"
@@ -15,12 +16,11 @@ type DbService struct {
 }
 
 func (*DbService) ConnectDB() (dbConn *gorm.DB, err error) {
-	//conf := config.C().Mysql
+	conf := config.C().Mysql
 
 	db, err := gorm.Open(mysql.New(mysql.Config{
-		DSN: "root:phperno1@tcp(8.142.86.204:3306)/arena?charset=utf8mb4&parseTime=True&loc=Local",
-		//DSN: conf.User + ":" + conf.Pwd + "@tcp(" + conf.Host + ":" + conf.Port + ")/" +
-		//	conf.DB + "?charset=utf8mb4&parseTime=True&loc=Local",
+		DSN: conf.User + ":" + conf.Pwd + "@tcp(" + conf.Host + ":" + conf.Port + ")/" +
+			conf.DB + "?charset=utf8mb4&parseTime=True&loc=Local",
 		DefaultStringSize:         256,
 		DisableDatetimePrecision:  true,
 		DontSupportRenameIndex:    true,

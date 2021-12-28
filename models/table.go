@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-type HicourtVideo struct {
+type Table struct {
 	Id uint32 `json:"id"`
 
 	ColInt32     int32          `json:"col_int_32"`

@@ -1,6 +1,6 @@
-# hicourt&球记
+#micro 实战示例
 
-HiCourt对接
+
 
 ##目录结构
 services --服务端 提供服务  
@@ -8,7 +8,7 @@ handler --具体服务实现
 proto-proto文件  
 
 models --对应表结构及request/response结构体  
-core --核心组件/中间件【DB,mysql...】<br/>
+core --核心组件/中间件【DB,mysql...】  
 dao --操作数据库层 存放操作数据库的逻辑 对数据库的操作仅可存放于此目录  
 --base 对数据库操作公共部分的封装 如connect Db  
 config --配置文件

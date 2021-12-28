@@ -2,9 +2,10 @@ package core
 
 import (
 	"context"
+	"github.com/go-redis/redis"
 	"time"
 
-	"git.myarena7.com/arena/hicourt/config"
+	"MarsLuo/config"
 	"github.com/go-redis/redis/v8"
 	"github.com/rs/zerolog/log"
 )
